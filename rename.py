@@ -5,7 +5,8 @@ import sys
 from pathlib import Path
 from numpy import fromfile, uint8   # pip install numpy
 '''----------------若下载路径发生变化，更改此处----------------'''
-download_dir = "D:/download/255067124/"
+# download_dir = "D:/download/255067124/"
+download_dir = Path(sys.argv[0]).resolve().parent  # 脚本文件的父文件夹的绝对路径
 
 '''----------------若前缀所在位置发生变化，更改此处----------------'''
 start_sequence_of_title = '"PartNo":'
