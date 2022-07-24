@@ -13,7 +13,8 @@
 
 ## 致谢
 解密代码借鉴自[VindenChen](https://github.com/VindenChen/BilibiliDecode)
-在此对其表示感谢！
+
+在此对其表示诚挚的感谢！！！
 
 ## TODO
 - 有的标题带有文件名的非法符号，需替换
