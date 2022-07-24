@@ -14,6 +14,7 @@
 根据自己哔哩哔哩中设置的下载目录，**需更改第8行的download_dir**后，即可运行。
 
 例如：download_dir = "D:/download/"
+
 又例如：download_dir = "D:/download/255067124/"
 
 ## 致谢
