@@ -1,6 +1,9 @@
 '''用于系统操作，打开文件等'''
 import os
-
+'''解密'''
+import sys
+from pathlib import Path
+from numpy import fromfile, uint8   # pip install numpy
 '''----------------若下载路径发生变化，更改此处----------------'''
 download_dir = "D:/download/255067124/"
 
@@ -13,6 +16,7 @@ start_label_of_title = '"PartName":'
 end_label_of_title = '","Format"'
 
 '''os.walk遍历该路径下所有路径和文件'''
+cnt = 0
 for f_path, dir_name, f_names in os.walk(download_dir):
     print("当前路径:", end='')
     print(f_path)  # 当前路径
@@ -24,10 +28,18 @@ for f_path, dir_name, f_names in os.walk(download_dir):
     for f_name in f_names:
         if 'mp4' in f_name:
             mp4_name = f_name
-
+            cnt = cnt+1
             '''保存MP4绝对路径'''
             mp4_path = f_path + '/' + mp4_name
             print('found one mp4 in:  ' + mp4_path)
+
+            '''解密操作'''
+            read = fromfile(mp4_path, dtype=uint8)
+            if all(read[0:3] == [255, 255, 255]):
+                outfile = f"str(cnt).mp4"
+                read[3:].tofile(mp4_path)
+                print(outfile)
+
             '''根据.info文件，找到标题内容'''
             for f_name in f_names:
                 if 'info' in f_name:
@@ -63,6 +75,7 @@ for f_path, dir_name, f_names in os.walk(download_dir):
                         try:
                             '''重命名'''
                             os.rename(mp4_path, new_name_path)
+
                             print(' successfully renamed')
 
                         except:

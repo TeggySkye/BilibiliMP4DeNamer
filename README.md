@@ -11,6 +11,10 @@
 ## 使用方法
 根据自己软件设置的下载目录，更改第十三行的download_dir后，即可运行
 
+## 致谢
+解密代码借鉴自[VindenChen](https://github.com/VindenChen/BilibiliDecode)
+在此对其表示感谢！
+
 ## TODO
 - 有的标题带有文件名的非法符号，需替换
 - 有的同一标题带有多个视频，若用相同标题命名，导出时会有问题
